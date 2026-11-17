@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 240px;
+      font-family: system-ui, sans-serif;
+      padding: 12px;
+      margin: 0;
+    }
+    h3 { margin: 0 0 10px 0; font-size: 14px; }
+    label { display: block; margin-bottom: 6px; }
+    .timer-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+    }
+    .timer-row label { margin: 0; white-space: nowrap; }
+    .timer-row input[type="number"] { width: 60px; padding: 3px 4px; }
+    .timer-row button { padding: 3px 10px; cursor: pointer; }
+    .status { font-size: 0.8em; color: green; margin-left: 4px; min-height: 1em; }
+    .link { margin-top: 12px; font-size: 0.85em; }
+    .trigger-row {
+      margin-left: auto;
+      font-size: 0.9em;
+      color: #666;
+      text-decoration: none;
+	  padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h3>Pause on idle</h3>
+
+  <label><input type="checkbox" id="youtube"> YouTube</label>
+  <label><input type="checkbox" id="twitch"> Twitch</label>
+
+  <div class="timer-row">
+    <label for="idleMinutes">Idle (min):</label>
+    <input type="number" id="idleMinutes" min="1" step="1" placeholder="60">
+    <button id="saveTimer" type="button">Save</button>
+    <span class="status" id="status"></span>
+  </div>
+
+  <div class="trigger-row">
+    <span>Triggers this session:</span>
+    <strong id="triggerCount">0</strong>
+    <a href="#" id="resetCount">reset</a>
+  </div>
+
+  <p class="link">
+    <a href="#" id="openOptions">⚙ More sites &amp; timers…</a>
+  </p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

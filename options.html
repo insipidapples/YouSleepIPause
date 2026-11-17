@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="dark light">
+  <title>Stream Idle Stopper – Settings</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; }
+    fieldset { border: 1px solid #ccc; border-radius: 6px; margin-bottom: 20px; padding: 12px 16px; }
+    legend { font-weight: 600; }
+    label { display: block; margin: 6px 0; }
+    input[type="number"] { width: 80px; }
+    textarea { width: 100%; height: 100px; font-family: monospace; }
+    button { padding: 6px 16px; }
+    .hint { font-size: 0.85em; color: #666; }
+    #status { margin-left: 12px; color: green; }
+  </style>
+</head>
+<body>
+  <h2>Stream Idle Stopper</h2>
+
+  <form id="settings-form">
+
+    <fieldset>
+      <legend>Built-in sites</legend>
+      <label><input type="checkbox" id="youtube"> YouTube</label>
+      <label><input type="checkbox" id="twitch"> Twitch</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Custom sites</legend>
+      <label for="customSites">One domain per line (e.g. <code>vimeo.com</code>):</label>
+      <textarea id="customSites" placeholder="vimeo.com&#10;netflix.com"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Timers</legend>
+      <label>
+        Inactivity threshold (minutes):
+        <input type="number" id="idleMinutes" min="1" step="1">
+      </label>
+      <p class="hint">How long Firefox must go without input before you are considered “idle”.</p>
+
+      <label>
+        Extra delay before pausing (seconds):
+        <input type="number" id="actionDelay" min="0" step="10">
+      </label>
+      <p class="hint">Once idle, wait this many extra seconds before pausing. During this window the toolbar will show a badge.</p>
+    </fieldset>
+
+    <button type="submit">Save settings</button>
+    <span id="status"></span>
+  </form>
+
+  <script src="options.js"></script>
+</body>
+</html>
