@@ -6,7 +6,7 @@
   "homepage_url": "https://github.com/insipidapples/YouSleepIPause",
   "browser_specific_settings": {
     "gecko": {
-      "id": "you-sleep-i-pause@insipidapp.local"
+      "id": "you-sleep-i-pause@insipidapp.local",
 	  "update_url": "https://raw.githubusercontent.com/insipidapples/YouSleepIPause/main/updates.json"
     }
   },
