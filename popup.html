@@ -24,13 +24,14 @@
     .timer-row button { padding: 3px 10px; cursor: pointer; }
     .status { font-size: 0.8em; color: green; margin-left: 4px; min-height: 1em; }
     .link { margin-top: 12px; font-size: 0.85em; }
-    .trigger-row {
-      margin-left: auto;
-      font-size: 0.9em;
-      color: #666;
-      text-decoration: none;
+	.trigger-row {
+	  display: flex;
+	  align-items: center;
+	  gap: 6px;
 	  padding-top: 8px;
-    }
+	  font-size: 0.9em;
+	  color: #666;
+	}
   </style>
 </head>
 <body>
@@ -41,7 +42,7 @@
 
   <div class="timer-row">
     <label for="idleMinutes">Idle (min):</label>
-    <input type="number" id="idleMinutes" min="1" step="1" placeholder="60">
+    <input type="number" id="idleMinutes" min="1" step="1">
     <button id="saveTimer" type="button">Save</button>
     <span class="status" id="status"></span>
   </div>

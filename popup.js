@@ -46,7 +46,7 @@ $("twitch").addEventListener("change", (e) => {
 });
 
 // ---------- timer input + save button ----------
-$("saveTimer").addEventListener("click", async () => {
+async function saveTimer() {
   const raw = $("idleMinutes").value.trim();
 
   let minutes;
@@ -68,10 +68,19 @@ $("saveTimer").addEventListener("click", async () => {
 
   $("idleMinutes").value = "";
   $("idleMinutes").placeholder = String(minutes);
-
   $("status").textContent = "Saved ✓";
   $("status").style.color = "green";
   setTimeout(() => ($("status").textContent = ""), 1500);
+}
+
+$("saveTimer").addEventListener("click", saveTimer);
+
+$("idleMinutes").addEventListener("keydown", (e) => {
+  // Ignore Enter while an IME is composing (CJK input methods)
+  if (e.key === "Enter" && !e.isComposing) {
+    e.preventDefault();
+    saveTimer();
+  }
 });
 
 // ---------- link to full options page ----------

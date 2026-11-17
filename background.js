@@ -138,6 +138,7 @@ browser.idle.onStateChanged.addListener(async (newState) => {
     // active — reset per-session flag, put idle icon back, leave the count visible
     countedThisSession = false;
     setIcon(false);
+	browser.idle.setDetectionInterval(sanitizeInterval(settings.idleInterval));
   }
 });
 

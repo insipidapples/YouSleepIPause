@@ -2,7 +2,7 @@ const DEFAULTS = {
   youtube: true,
   twitch: true,
   customSites: [],
-  idleInterval: 3600, // seconds
+  idleInterval: 900, // seconds
   actionDelay: 0      // seconds
 };
 
@@ -30,7 +30,7 @@ document.getElementById("settings-form").addEventListener("submit", async (e) =>
 
   // minutes → seconds
   const minutesRaw = Number(document.getElementById("idleMinutes").value);
-  const minutes = Number.isFinite(minutesRaw) && minutesRaw >= 1 ? minutesRaw : 60;
+  const minutes = Number.isFinite(minutesRaw) && minutesRaw >= 1 ? minutesRaw : 15;
 
   const settings = {
     youtube:      document.getElementById("youtube").checked,
